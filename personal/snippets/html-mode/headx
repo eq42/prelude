@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: headx
+# key: headx
+# --
+<!DOCTYPE html>
+<html>
+<head>
+<title>$0Title of the document</title>
+</head>
+
+<body>
+The content of the document......
+
+</body>
+</html>
