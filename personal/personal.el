@@ -1,14 +1,43 @@
+;;; personal.el --- customizing prelude
+;;; Code
 (server-start)
-
+(prelude-ensure-module-deps '(yasnippet markdown-mode))
 (desktop-save-mode 1)
+(setq desktop-buffers-not-to-save
+      (concat "\\("
+              "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
+              "\\|\\.emacs.*\\|\\.pdf\\|\\.newsrc-dribble\\|\\.bbdb"
+              "\\)$"))
+(add-to-list 'desktop-modes-not-to-save 'dired-mode)
+(add-to-list 'desktop-modes-not-to-save 'Info-mode)
+(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
+(add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
+
 (scroll-bar-mode -1)
 (global-linum-mode t)
-
-(add-to-list 'load-path prelude-personal-dir)
-
 (electric-indent-mode)
 
+;;; load first level subdirs
+(let ((base prelude-personal-dir))
+  (add-to-list 'load-path base)
+  (dolist (f (directory-files base))
+    (let ((name (concat base "/" f)))
+      (when (and (file-directory-p name)
+                 (not (equal f ".."))
+                 (not (equal f ".")))
+        (add-to-list 'load-path name)))))
+
+(require 'yasnippet-settings)
+
+
 (require 'compile-misc)
+
+(require 'edit-functions)
+
+(require 'python-settings)
+
+(require 'dired-settings)
+
 
 (global-set-key (kbd "C-x y") 'ffap)
 
@@ -21,7 +50,9 @@
   (forward-line -1)
   (indent-according-to-mode))
 
-;; workaround for tab in term mode
-(require 'yasnippet-settings)
-(add-hook 'term-mode-hook (lambda()
-                            (yas-minor-mode -1)))
+
+(defun select-current-line ()
+  "Select the current line"
+  (interactive)
+  (end-of-line) ; move to end of line
+  (set-mark (line-beginning-position)))
