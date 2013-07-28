@@ -1,6 +1,8 @@
 ;;; yasnippet-settings -- yasnippet-settings
 ;;; Commentary:
 ;;; Code:
+(prelude-ensure-module-deps '(yasnippet))
+
 (require 'yasnippet)
 
 (setq yas-snippet-dirs (concat prelude-personal-dir "/snippets/"))

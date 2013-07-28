@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: headx
+# key: headx
+# --
+;;; $1 -- $2
+;;; Commentary: $3
+;;; Code:
+(and (featurep '`(setq el-provide-name (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))))`)
+     (error "`el-provide-name` cannot be loaded twice in the same Emacs session."))
+
+$0
+
+(provide '`el-provide-name`)
+;;; `el-provide-name` ends here

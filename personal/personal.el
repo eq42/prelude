@@ -1,7 +1,6 @@
 ;;; personal.el --- customizing prelude
 ;;; Code
 (server-start)
-(prelude-ensure-module-deps '(yasnippet markdown-mode))
 (desktop-save-mode 1)
 (setq desktop-buffers-not-to-save
       (concat "\\("
@@ -56,3 +55,15 @@
   (interactive)
   (end-of-line) ; move to end of line
   (set-mark (line-beginning-position)))
+
+(defalias 'redo 'undo-tree-redo)
+(global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
+
+(global-set-key (kbd "C-S-z") 'redo) ; 【Ctrl+Shift+z】;  Mac style
+
+(prelude-ensure-module-deps '(direx))
+(require 'direx)
+(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
+
+(eval-after-load "python"
+  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
