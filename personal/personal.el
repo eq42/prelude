@@ -40,6 +40,7 @@
 
 (require 'python-settings)
 (require 'ruby-settings)
+(require 'lisp-settings)
 
 (require 'dired-settings)
 

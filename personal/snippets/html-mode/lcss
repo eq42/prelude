@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lcss
+# key: lcss
+# --
+<link rel="stylesheet" type="text/css" href="$1.css">$0

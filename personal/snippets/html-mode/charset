@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: charset
+# key: charset
+# --
+<meta charset='utf-8'>

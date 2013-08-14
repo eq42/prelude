@@ -9,7 +9,7 @@
 (require 'ein)
 
 (setq
- python-shell-interpreter "/home/chris/py3env/bin/ipython3"
+ python-shell-interpreter "~/py3env/bin/ipython3"
  python-shell-interpreter-args ""
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
