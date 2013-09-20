@@ -1,8 +1,8 @@
 ;;; ruby-settings -- ruby-settings
 ;;; Commentary:
 ;;; Code:
-(prelude-ensure-module-deps '(inf-ruby robe))
-
+(prelude-ensure-module-deps '(robe rvm))
+(rvm-use-default)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-setup-keybindings "inf-ruby" "" t)
 (eval-after-load 'ruby-mode

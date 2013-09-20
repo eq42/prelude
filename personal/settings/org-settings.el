@@ -36,5 +36,9 @@ on org-insert-export-options-template, but modified several fields."
            org-exnport-with-emphasize
            org-export-with-timestamps)))
 
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
 (provide 'org-settings)
 ;;; org-settings ends here

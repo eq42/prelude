@@ -43,8 +43,10 @@
 (require 'lisp-settings)
 
 (require 'dired-settings)
-
-
+(require 'web-settings)
+(require 'ibus)
+(require 'org-settings)
+(require 'highlight-indentation)
 (global-set-key (kbd "C-x y") 'ffap)
 (global-set-key (kbd "C-k") 'smart-kill)
 
@@ -70,13 +72,3 @@
 (global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
 
 (global-set-key (kbd "C-S-z") 'redo) ; 【Ctrl+Shift+z】;  Mac style
-
-(prelude-ensure-module-deps '(direx o-blog emmet-mode))
-(require 'emmet-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-(require 'direx)
-(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory)
-
-(eval-after-load "python"
-  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
